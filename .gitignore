@@ -1,0 +1,4 @@
+create_dummy_model.py
+qnn_bool8_support_spec.md
+model_htp_compliant.onnx
+model_with_bools.onnx

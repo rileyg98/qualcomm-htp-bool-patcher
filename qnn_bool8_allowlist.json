@@ -1,0 +1,327 @@
+{
+  "Operation Name": {
+    "inputs": [],
+    "outputs": []
+  },
+  "Buffer": {
+    "inputs": [
+      1
+    ],
+    "outputs": []
+  },
+  "Cast": {
+    "inputs": [
+      0
+    ],
+    "outputs": [
+      0
+    ]
+  },
+  "Concat": {
+    "inputs": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    "outputs": [
+      0
+    ]
+  },
+  "Convert": {
+    "inputs": [
+      0
+    ],
+    "outputs": [
+      0
+    ]
+  },
+  "CumulativeSum": {
+    "inputs": [],
+    "outputs": []
+  },
+  "And": {
+    "inputs": [
+      0,
+      1
+    ],
+    "outputs": [
+      0
+    ]
+  },
+  "ElementWiseBinary": {
+    "inputs": [
+      0,
+      1
+    ],
+    "outputs": [
+      0
+    ]
+  },
+  "Equal": {
+    "inputs": [],
+    "outputs": [
+      0
+    ]
+  },
+  "Greater": {
+    "inputs": [],
+    "outputs": [
+      0
+    ]
+  },
+  "GreaterOrEqual": {
+    "inputs": [],
+    "outputs": [
+      0
+    ]
+  },
+  "Less": {
+    "inputs": [],
+    "outputs": [
+      0
+    ]
+  },
+  "LessOrEqual": {
+    "inputs": [],
+    "outputs": [
+      0
+    ]
+  },
+  "Not": {
+    "inputs": [
+      0
+    ],
+    "outputs": [
+      0
+    ]
+  },
+  "NotEqual": {
+    "inputs": [],
+    "outputs": [
+      0
+    ]
+  },
+  "Or": {
+    "inputs": [
+      0,
+      1
+    ],
+    "outputs": [
+      0
+    ]
+  },
+  "Where": {
+    "inputs": [
+      0
+    ],
+    "outputs": []
+  },
+  "Xor": {
+    "inputs": [
+      0,
+      1
+    ],
+    "outputs": [
+      0
+    ]
+  },
+  "GRU": {
+    "inputs": [
+      14
+    ],
+    "outputs": []
+  },
+  "IsInf": {
+    "inputs": [],
+    "outputs": [
+      0
+    ]
+  },
+  "IsNaN": {
+    "inputs": [],
+    "outputs": [
+      0
+    ]
+  },
+  "LSTM": {
+    "inputs": [
+      24
+    ],
+    "outputs": []
+  },
+  "NonZero": {
+    "inputs": [
+      0
+    ],
+    "outputs": []
+  },
+  "Reshape": {
+    "inputs": [
+      0
+    ],
+    "outputs": [
+      0
+    ]
+  },
+  "RoiAlign": {
+    "inputs": [],
+    "outputs": []
+  },
+  "ScatterND": {
+    "inputs": [
+      0,
+      2
+    ],
+    "outputs": [
+      0
+    ]
+  },
+  "Split": {
+    "inputs": [
+      0
+    ],
+    "outputs": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ]
+  },
+  "Tile": {
+    "inputs": [
+      0
+    ],
+    "outputs": [
+      0
+    ]
+  },
+  "Transpose": {
+    "inputs": [
+      0
+    ],
+    "outputs": [
+      0
+    ]
+  }
+}
