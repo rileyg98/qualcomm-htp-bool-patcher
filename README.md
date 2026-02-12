@@ -1,0 +1,1 @@
+Super simple script that removes any invalid HTP Ops (per https://docs.qualcomm.com/doc/80-63442-10/topic/HtpOpDefSupplement.html) that will cause your model to fail compilation to a device-specific context bin on the AI Hub Workbench. 
