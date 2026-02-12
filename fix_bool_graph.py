@@ -6,10 +6,63 @@ import argparse
 import json
 import logging
 from onnx import TensorProto, helper
+from collections import defaultdict, deque
 
 # Configure Logging
 logging.basicConfig(level=logging.INFO, format='%(message)s')
 logger = logging.getLogger(__name__)
+
+def topological_sort(graph):
+    """
+    Sorts nodes topologically using Kahn's Algorithm.
+    Ensures final graph is properly ordered for HTP backend.
+    """
+    logger.info(">>> Sorting nodes topologically...")
+    
+    # Identify initial available tensors (inputs and initializers)
+    available_tensors = set(i.name for i in graph.input)
+    available_tensors.update(i.name for i in graph.initializer)
+    
+    # Map every tensor name to its producer (node index)
+    producer_map = {}
+    for i, node in enumerate(graph.node):
+        for output_name in node.output:
+            if output_name:
+                producer_map[output_name] = i
+                
+    # Build adjacency list (node -> consumers) and calculate in-degrees
+    node_dependencies = defaultdict(list)
+    node_in_degree = defaultdict(int)
+    
+    for i, node in enumerate(graph.node):
+        for input_name in node.input:
+            if input_name in producer_map:
+                producer_idx = producer_map[input_name]
+                node_dependencies[producer_idx].append(i)
+                node_in_degree[i] += 1
+                
+    # Queue of nodes with 0 dependencies on other nodes
+    queue = deque([i for i in range(len(graph.node)) if node_in_degree[i] == 0])
+    sorted_nodes = []
+    
+    while queue:
+        node_idx = queue.popleft()
+        sorted_nodes.append(graph.node[node_idx])
+        
+        if node_idx in node_dependencies:
+            for child_idx in node_dependencies[node_idx]:
+                node_in_degree[child_idx] -= 1
+                if node_in_degree[child_idx] == 0:
+                    queue.append(child_idx)
+                    
+    if len(sorted_nodes) != len(graph.node):
+        logger.error(f"❌ Cycle detected or graph disconnected! Sort failed ({len(sorted_nodes)}/{len(graph.node)} nodes sorted).")
+        return False
+        
+    logger.info("✅ Graph successfully sorted.")
+    del graph.node[:]
+    graph.node.extend(sorted_nodes)
+    return True
 
 def load_bool_support_spec(json_path):
     """
@@ -185,6 +238,9 @@ def enforce_htp_bool_constraints(model_path, spec_path, output_path):
     # Replace graph nodes
     del graph.node[:]
     graph.node.extend(new_nodes)
+
+    # Topological Sort
+    topological_sort(graph)
     
     logger.info(f"Finished. Processed {nodes_processed} nodes. Made {modifications} modifications.")
     logger.info(f"Saving compliant model to {output_path}...")

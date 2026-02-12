@@ -7,6 +7,7 @@ A robust utility to modify ONNX models for compatibility with the Qualcomm Hexag
 - **Spec-Driven**: Uses a JSON allowlist generated from official QNN documentation.
 - **Sandwich Algorithm**: Automatically injects Pre-Casts (BOOL → INT32) for unsupported inputs and Post-Casts (INT32 → BOOL) to maintain graph invariants.
 - **Initializer Support**: Converts BOOL Initializers directly to INT32 to minimize graph overhead.
+- **Topological Sorting**: Automatically reorders the graph using Kahn's Algorithm to ensure a valid execution order after modifications.
 - **Verification**: Runs `onnx.checker` on the output model to ensure validity.
 
 ## Usage
